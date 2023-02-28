@@ -1,0 +1,297 @@
+
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<a href="/student/reports/report/report_profile" class="btn btn-small pull-right" style="margin-top: 12px;">My Profile</a>
+				<h1 class="page-header">Online Resume Tool</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				
+				<% if @student.school_password == "" || @student.school_password == nil %>
+				
+	 			
+	 			<hr/>
+	 			<a href="/student/resume/<%= @student.id %>/edit" class="btn btn-small btn-primary pull-right">Edit Profile</a>
+	 		  <h5>You must complete your student profile to continue.</h5>
+	 		  <hr/>
+			  <% else %>
+			 
+				
+            <ul class="rs-menu">
+					<% if @student.name == "" && @student.last_name == "" %>
+                <li>
+                    <a href="/student/resume/edit">
+                        <!-- <span class="ra-icon"><i class="icon-plus"></i></span> -->
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Personal Information</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li class="g">
+                    <a href="/student/resume/edit">
+                        <!-- <span class="rs-icon"><i class="icon-ok"></i></span> -->
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Personal Information</h2><span class="right-info semi-bold">Edit</span>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 
+					 
+					 <% if @student.objectives.count == 0 %>
+                <li>
+                    <a href="/student/resume/objectives/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Career Objectives</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/objectives/objectives">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Career Objectives</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.skills.count == 0 %>
+                <li>
+                    <a href="/student/resume/skills/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Career Skills</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/skills/skills">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Career Skills</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.educations.count == 0 %>
+                <li>
+                    <a href="/student/resume/educations/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Education</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/educations/educations">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Education</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.experiences.count == 0 %>
+                <li>
+                    <a href="/student/resume/experience/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Work Experience</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/experience/experiences">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Work Experience</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.activities.count == 0 %>
+                <li>
+                    <a href="/student/resume/activities/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Activities</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/activities/activities">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Activities</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.awards.count == 0 %>
+                <li>
+                    <a href="/student/resume/awards/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Awards</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/awards/awards">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Awards</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					
+					 
+					 <% if @student.traits.count == 0 %>
+                <li>
+                    <a href="/student/resume/traits/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Character Traits</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/traits/traits">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Character Traits</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+					 <% if @student.interests.count == 0 %>
+                <li>
+                    <a href="/student/resume/interests/new">
+                        <span class="ra-icon"><i class="icon-plus"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info">Get started</span><h2 class="rs-main">Interests and Hobbies</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% else %>
+                <li>
+                    <a href="/student/resume/interests/interests">
+                        <span class="rs-icon"><i class="icon-ok"></i></span>
+                        <div class="rs-content">
+                            <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Interests and Hobbies</h2>
+                        </div>
+                    </a>
+                </li>
+					 <% end %>
+					 
+	 					 <% if @student.references.count == 0 %>
+	                 <li>
+	                     <a href="/student/resume/references/new">
+	                         <span class="ra-icon"><i class="icon-plus"></i></span>
+	                         <div class="rs-content">
+	                             <span class="right-info">Get started</span><h2 class="rs-main">References</h2>
+	                         </div>
+	                     </a>
+	                 </li>
+	 					 <% else %>
+	                 <li>
+	                     <a href="/student/resume/references/references">
+	                         <span class="rs-icon"><i class="icon-ok"></i></span>
+	                         <div class="rs-content">
+	                             <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">References</h2>
+	                         </div>
+	                     </a>
+	                 </li>
+	 					 <% end %>
+					 
+	 					 <% if @student.letters.count == 0 %>
+	                 <li>
+	                     <a href="/student/resume/letters/new">
+	                         <span class="ra-icon"><i class="icon-plus"></i></span>
+	                         <div class="rs-content">
+	                             <span class="right-info">Get started</span><h2 class="rs-main">Cover, Thank You Letters</h2>
+	                         </div>
+	                     </a>
+	                 </li>
+	 					 <% else %>
+	                 <li>
+	                     <a href="/student/resume/letters/letters">
+	                         <span class="rs-icon"><i class="icon-ok"></i></span>
+	                         <div class="rs-content">
+	                             <span class="right-info edit semi-bold" style="color: #038dc1;">Edit</span><h2 class="rs-main">Cover, Thank You Letters</h2>
+	                         </div>
+	                     </a>
+	                 </li>
+	 					 <% end %>
+						 
+		 					 
+
+				</ul>
+				<br />
+			</div>
+			<div class="col md-6">
+				<!-- <a href="/student/resume/<%= @student.id %>/edit" class="btn btn-mini btn-secondary pull-right">&nbsp;&nbsp;Edit Profile&nbsp;&nbsp;</a> -->
+				<h6>Account Info</h6>
+				<p><%= @student.email %><br />
+
+					<% unless @student.name == "" || @student.name == nil %><strong><%= @student.name %></strong>
+					<% else %><strong><%= @student.first_name %> <%= @student.middle_name %> <%= @student.last_name %></strong>
+					<% end %><br />
+					<% unless @student.address == "" %><%= @student.address %><br /><% end %>
+					<% unless @student.city == "" %><%= @student.city %><% end %> <% unless @student.state == "" %><%= @student.state %><% end %> <% unless @student.zip == "" %><%= @student.zip %><br /><% end %>
+					<% unless @student.phone == "" %><%= formatted_number(@student.phone) %><% end %><br />
+					
+					<strong>School ID</strong> &nbsp; <%= @student.school_password %><br />
+					
+				</p>
+				
+				<hr />
+				<p style="margin-bottom: 6px;"><strong>View these documents</strong> at any time to check your progress, grammar, and spelling.</p>
+				<!-- <p><a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Action
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    <li><a href="/student/resume/#{@student.name.split.join}-resume-pdf">PDF</a></li> -->
+  <a href="/student/resume/resume-view" style="margin-bottom: 6px;" class="btn btn-small btn-success">Resume</a> 
+  <a href="/student/resume/resume" style="margin-bottom: 6px;" class="btn btn-small btn-success">PDF</a> <!-- <a href="/student/resume/resume-print" class="btn btn-small btn-success">For Editor</a><br style="line-height: 3em;" /> -->
+  <br style="line-height: 3em;" />
+  <a href="/student/resume/letters/letters-view" class="btn btn-small btn-success">Cover & Thank You Letters</a> 
+  <a href="/student/resume/references/references-view" class="btn btn-small btn-success">References</a></p>
+				<p>Once you are finished you can print your resume or copy and paste the content of each document into a text editor.</p>
+				<p style="font-size: 1.1rem;">Get Your Practice Job Application&nbsp;&nbsp;<a class="btn btn-info btn-mini" href="/img/job-application.pdf">&nbsp;Download&nbsp;</a></p>
+				<div>
+					<hr />
+					<p style="line-height: 17px; margin-top: 14px;"><a style="margin: 5px 24px 24px 0; background-color: #000000;" class="btn btn-mini btn-secondary pull-left" href="/student/resume/sign-out">&nbsp;&nbsp;<i class="icon-signout"> </i> &nbsp;Sign out&nbsp;&nbsp;</a>
+					<strong>PROTECT YOUR PRIVACY.</strong>
+					<small>If you are using a public or shared device <strong>sign out</strong> when finished.</small></p>
+					
+				</div>
+				<br />
+				
+			
+		  <% end %>
+			</div>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container -->

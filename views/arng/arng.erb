@@ -1,0 +1,45 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<h1 class="page-header"><img src="/img/eCareerDirection-logo-black.svg" width="300px" style="margin-top: -6px;"></h1>
+			</div>
+			<div class="col-md-8">
+				<p class="lead">The <strong>Army National Guard</strong> continues to support its mission first established in 1636 to provide for the security and well-being of our country and communities. The Guard saves lives during floods, tornadoes, blizzards, and other disasters.</p>
+				<p>Guard members protect and defend. Both the Guard and Career Training Concepts are proud to be your partners in this important endeavor of planning your future.</p>
+				<p>The National Guard offers educational, training, employment, financial assistance, and personal growth opportunities for qualifying students.</p>
+				<p class="under-link">Visit <a href="http://www.NationalGuard.com" target="blank">NationalGuard.com</a> for more information on the Army National Guard.</p>
+			
+				<div class="sign-in" style="padding: 18px 32px; margin: 48px 0;">
+					<h6>ARNG Section </h6>
+					<div style="padding-right: 18px; float: left; border-right: 1px solid #b2b5bc;">
+						<% if session[:recruiter] %>
+						<p>New Recruiter</p>
+						<p><a href="/recruiters/noaccount" class="btn btn-primary disabled">Create an account</a></p>
+						<% else %>
+						<p>New Recruiter</p>
+						<p><a href="/recruiters/noaccount" class="btn btn-primary">Create an account</a></p>
+						<% end %>
+					</div>
+					<div style="margin-left: 184px;">
+						<% if session[:recruiter] %>
+							<p> You are signed in</p>
+							<p><a href="/recruiters/signout" style="background-color: #000000;" class="btn btn-secondary"><i class="icon-signout"> </i> &nbsp;Sign out</a></p>
+						<% else %>
+							<p>Already have an account</p>
+							<p><a href="/recruiters/signin" class="btn btn-success"><i class="icon-signin"></i> &nbsp;Sign in</a></p>
+						<% end %>
+					</div>
+					
+					<p style="clear: both; padding-top: 12px;">You will need to create an account to activate a school and schedule a class to present <strong><span class="logo-e">e</span>CareerDirection.</strong> For further assistance, email <a href="MAILTO:info@careertrain.com">info@careertrain.com</a>.</p> 
+					
+				</div>
+				
+			</div>
+			
+			
+			<div class="col-md-4">
+				<p><img src="/img/soldier-net.jpg" class="pic-border" width="100%" /></p>
+			</div>
+			
+		</div>
+	</div> <!-- /container -->

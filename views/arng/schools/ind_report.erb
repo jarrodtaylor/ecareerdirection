@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <link href="/css/bootstrap.min.css" rel="stylesheet">
+  	<link href="/css/bootstrap-reboot.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-grid.min.css" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="/css/resume-style.css" />
+	<link type="text/css" rel="stylesheet" href="/css/datetimepicker.css" />
+	<link type="text/css" rel="stylesheet" href="/css/resume-content.css" />
+	<link type="text/css" rel="stylesheet" href="/css/theme.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome-ie7.min.css" />
+	<link type="text/css" rel="stylesheet" href="/css/buttons_altered.css" />
+	
+<style>
+	p	{
+		font-size: 12px;
+		line-height: 1.15em;
+		margin-bottom: 6px;
+		font-weight: 300;
+		font-family: helvetica;
+	}
+	
+	.headsm	{
+		font-weight: 900;
+		margin-bottom: 3px;
+	}
+	h5	{
+		font-size: 18px;
+		font-weight: 900;
+	}
+	strong	{
+		font-weight: 900;
+	}
+	ul	{
+		margin-bottom: 1px;
+	}
+	ul li	{
+		font-size: 12px;
+		font-family: helvetica;
+		padding: 0;
+		margin-top: 1px;
+		font-weight: 300;
+	}
+	
+	tr.main td	{
+		font-family: helvetica;
+		line-height: 24px;
+		font-weight: 300;
+		border: 0px solid #fff9d8;
+		border-collapse: collapse;
+	}
+	tr.main th	{
+		font-family: helvetica;
+		line-height: 24px;
+		font-weight: 300;
+		border: none;
+		border: 0px solid #fff9d8;
+		border-collapse: collapse;
+	}
+	tr.main td ul li	{
+		line-height: 18px;
+		font-weight: 300;
+		border: none;
+	}
+	td {
+		font-size: 12px;
+		border: 0;
+		font-family: helvetica;
+		margin-top: 0px;
+		border: 0px;
+	}
+	
+	.lead	{
+		font-family: helvetica;
+		font-weight: 900;
+		text-align: center;
+	}
+	
+	table tr td	{
+		border: 0px solid #fff9d8;
+		border-collapse: collapse;
+		font-family: helvetica;
+		font-size: 12px;
+		line-height: 16px;
+		margin-top: 3px;
+		padding-top: 0;
+		font-weight: 300;
+	}
+	
+	table.side tr td	{
+		border: 0px solid #fff9d8;
+		  border-collapse: collapse;
+		font-family: helvetica;
+		font-size: 12px;
+		font-weight: 300;
+	}
+	
+	table.side tr th	{
+		font-family: helvetica;
+		font-size: 12px;
+		font-weight: 600;
+	}
+	
+	div.inner	{
+		display: none;
+	}
+	
+	.header1	{
+		font-family: helvetica;
+		font-size: 18px;
+		font-weight: 900;
+		text-align: center;
+		margin-bottom: 9px;
+	}
+	
+	.header2	{
+		font-family: helvetica;
+		font-size: 15px;
+		font-weight: 900;
+	}
+	
+	@media print {
+	  .hidden-print {
+	    display: none !important;
+	  }
+	}
+	
+	
+</style>
+
+</head>
+
+<body>
+	
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="hidden-print" style="margin: 1em 0 2em 0;"> 
+					<form method="post">
+					<button type="submit" style="margin-left: 24px;" class="hidden-print btn pull-right">Create PDF</button>
+					</form>
+					<button onclick="history.back()" class="hidden-print btn btn-secondary pull-right">Back</button><br />
+				</div>
+				 
+				
+				
+				
+				<% @school.students.each do |student| %>
+				
+				<% if student.created_on == @school.class_date %>
+				
+				<div style="page-break-after: always;"> </div> 
+				
+				
+					
+				<div style="float: right; clear: all;">
+
+					<strong>Class Date:</strong> &nbsp;&nbsp;<%= format_day(@school.class_date) %>
+					<!-- <strong>Class Date:</strong> &nbsp;&nbsp;<%= @school.class_date.strftime("%m/%d/%Y") %> -->
+					<!-- <strong>Date:</strong> &nbsp;&nbsp;<%= Time.now.strftime("%m/%d/%Y") %> -->
+				</div>
+				<h6><strong><span class="logo-e">e</span>CD</strong> Inventory Student Planning Report</h6>
+				
+				<p><strong>Student:</strong> &nbsp;<%= student.first_name %> <%= student.last_name %> &nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong>Grade:</strong> &nbsp;<%= student.grade %> &nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong>Email:</strong>&nbsp; <%= student.email %> <% if student.phone %> &nbsp;&nbsp;-&nbsp;&nbsp; <strong>Phone:</strong>&nbsp; <%= student.phone %><% end %> <% if student.score1 %> &nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong>High Scores:</strong>&nbsp;&nbsp;<%= titleize(student.score1) %><%= titleize(student.score2) %><% end %></p>
+				<p><strong>School:</strong> &nbsp;<%= @school.school_name %>  &nbsp;&nbsp;&bull;&nbsp;&nbsp; <strong>Rep:</strong> &nbsp;<%= @school.recruiter.rank %> <%= @school.recruiter.first_name %> <%= @school.recruiter.middle_name %> <%= @school.recruiter.last_name %></p>
+					
+						<form method="post" id="exercise">
+						<table cellpadding="0" cellspacing="0" class="side">
+						<tr>
+							<!-- <td style="text-align: left; font-size: 14px;"><strong><span class="logo-e">e</span>CD</strong> Exercise Scores</td> -->
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>A:</strong> Outdoor</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>B:</strong> Arts/Com.</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>C:</strong> Bus/Mgt.</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>D:</strong> Clerical/Adm.</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>E:</strong> Protect/Military</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F:</strong> Technology</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>G:</strong> Public Service</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>H:</strong> Science/Math</td>
+							<td style="text-align: center; font-size: 11px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>I:</strong> Social GHelping</td>
+						</tr>
+						<tr>
+							<!-- <th style="text-align: left; font-size: 14px;"><strong><span class="logo-e">e</span>CD</strong> Exercise Scores</th> -->
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_a %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_b %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_c %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_d %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_e %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_f %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_g %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_h %></th>
+							<th style="text-align: center; font-size: 13px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= student.score_i %></th>
+						</tr>
+						</table>
+						</form>
+					<p style="margin-top: 6px;"><strong>Future Plans:</strong>&nbsp;&nbsp;&nbsp;<% if student.future1 == "on" %>&nbsp;Enter technical college/trade school&nbsp;&nbsp;&nbsp;<% end %> <% if student.future2 == "on" %>&nbsp;Work full-time&nbsp;&nbsp;&nbsp;<% end %> <% if student.future3 == "on" %>&nbsp;Work part-time&nbsp;&nbsp;&nbsp;<% end %> <% if student.future4 == "on" %>&nbsp;Enter the military&nbsp;&nbsp;&nbsp;<% end %> <% if student.future5 == "on" %>&nbsp;Go to college&nbsp;&nbsp;&nbsp;<% end %> <% if student.future6 == "on" %>&nbsp;I have money to pay for education&nbsp;&nbsp;&nbsp;<% end %> <% if student.future7 == "on" %>&nbsp;Counting on parents for money for education&nbsp;&nbsp;&nbsp;<% end %> <% if student.future8 == "on" %>&nbsp;Considering sources of financial aid or scholarships&nbsp;&nbsp;&nbsp;<% end %></p>
+					
+					<p style="margin-top: 9px;">This report is based on the pairing of the two occupational categories in which you scored highest. Listed below is a general description of the personality type common to people who have your interests. It will help you better understand your unique personality. Next the report lists courses of study, extracurricular activities, and part-time jobs that may be right for you. This information should help you make appropriate decisions as you plan your future. Remember, you are just exploring your future right now and you can look at as many job possibilities as you want. If you want more information on jobs that interest you, ask your school Counselor for additional sources.</p>
+					
+			    <% if student.score1 && student.score2 && File.exists?("./views/reports-long/#{student.score1}#{student.score2}.inc") %>
+			    	<%= @report1 = File.read("./views/reports-long/#{student.score1}#{student.score2}.inc") %>
+			    <% elsif student.score1 && student.score2 && File.exists?("./views/reports-long/#{student.score2}#{student.score1}.inc") %>
+			    	<%= @report1 = File.read("./views/reports-long/#{student.score2}#{student.score1}.inc") %>
+			    <% end %>
+				<hr />
+				<p>if you are more&nbsp; <strong>People Oriented</strong>, you may enjoy the careers to the left. If you are more&nbsp; <strong>Technically Oriented</strong>, you might want to review the careers on the right side.</p>
+				<hr />
+				
+				<div class="hidden-print" style="margin: 1em 0 1em 0;"> 
+					<hr style="border: none; border-top: 3px solid #186271;" />
+				</div>
+				
+  		    	<% end %>
+				
+				<!-- /page break -->
+				
+				<% end %>
+				
+
+						
+				
+			
+			</div>
+		</div>
+	</div>
+</body>
+</html>

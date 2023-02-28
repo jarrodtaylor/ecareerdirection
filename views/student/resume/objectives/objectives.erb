@@ -1,0 +1,30 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<a href="/student/resume/index" class="btn btn-small pull-right" style="margin-top: 12px;">Resume Tool</a>
+				<h1 class="page-header">Career Objectives</h1>
+			</div>
+			<div class="col-md-8 offset-md-2">
+				
+				<table class="table">
+
+					<% @student.objectives.each do |objective| %>
+					<tr>
+						<td>
+							<p><span class="muted">My immediate goal is to work as</span> <strong><%= objective.goal %></strong>.</p>
+							<p><span class="muted">This position will help me learn</span> <strong><%= objective.learn %></strong></p>
+							<p><span class="muted">as I pursue my long-term goal of</span> <strong><%= objective.long_goal %></strong>.</p>
+						</td>
+					</tr>
+					<tr>	
+						<td><a href="/student/resume/objectives/<%= objective.id %>/edit" class="btn btn-small btn-success">Edit</a></td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+
+
+

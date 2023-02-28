@@ -1,0 +1,65 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<h1 class="page-header">Online Resume Tool</h1>
+			</div>
+			<div class="col-lg-6">
+
+				<p class="lead"><strong><span class="logo-e">e</span>CareerDirection</strong> &nbsp;<em>Job Getting Tools</em> can help your students create resumes and cover letters that will help them "get that job!"</p> 
+				<p>Students will need to enter the School ID to access this valuable tool. By completing the online form, they can automatically generate a resume, a cover letter, and even a thank you note for after the interview.</p>
+		
+				<div class="sign-in" style="padding: 18px 32px; margin: 48px 0;">
+					<h6>Resume Tool</h6>
+					<div style="padding-right: 18px; float: left; border-right: 1px solid #b2b5bc;">
+						<p>New user</p>
+						<p><a href="/student/resume/create" class="btn btn-primary">Create an account</a></p>
+					</div>
+					<div style="margin-left: 184px;">
+						<p>Already have an account</p>
+						<p><a href="/student/reports/signin" class="btn btn-success"><i class="icon-signin"></i> &nbsp;Sign in</a></p>
+					</div>
+					
+					<p style="clear: both; padding-top: 9px;">You will need your School ID to create a new account.</p> 
+					<hr />
+					<h5>Need Your School ID?</h5>
+					<p>If your students have participated in a <em>e</em>CareerDirection class and you do not know your School ID submit your school's zip.</p>
+				
+				
+					<p>
+						<form method="get" class="form-search form-inline">
+						  <input type="text" name="zip" class="form-control search-query" placeholder="School Zip"/>  &nbsp;  
+						  <input type="submit" class="btn btn-success" />
+						</form>
+			  		</p>
+					
+
+					<% if @results %>
+  					<p>
+						<% @results.each do |c| %>
+							<hr />
+							<span style="font-size: 1.2rem;"><%= c.school_name %></span> &nbsp; <small><%= "(Not Activated)" unless c.active %></small><br />
+							<%= c.school_city %> <%= c.school_state %> &nbsp;<%= c.school_zip %> &nbsp; &nbsp; &nbsp; <% unless c.active %><% else %><br />
+							School ID &nbsp;&nbsp;<span class="password-show"><%= c.school_password %></span><% end %>
+						<% end %>
+  					</p> 
+
+					<% end %>
+					
+					<% if (@results.count < 1) && (params[:zip] != '') %>
+						<hr />
+						<span class="password-show">NO SCHOOL FOUND FOR <%= params[:zip] %></span>
+					<% end %>
+						
+						<hr />
+					<p style="line-height: 1.3em;">If the school is <strong>not listed above</strong> or listed as <strong>Not Activated</strong>, please call 888-326-9229.</p>
+			
+				</div>
+			</div>
+			<div class="col-lg-6">
+				<p style="margin: 24px;"><img src="/img/resume-cron.png" width="90%" class="rotated"></p>
+			</div>
+				
+			
+		</div>
+	</div> <!-- /container -->
+		

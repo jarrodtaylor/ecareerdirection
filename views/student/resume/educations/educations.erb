@@ -1,0 +1,34 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<a href="/student/resume/index" class="btn btn-small pull-right" style="margin-top: 12px;">Resume Tool</a>
+				<h1 class="page-header">Education</h1>
+			</div>
+		</div>
+		<div class="row">  
+			<div class="col-md-8 offset-md-2">
+				<table class="table">
+					<% @student.educations.each do |education| %>
+					<tr>
+						<td>
+							<p style="clear: left;"><label class="resume-view">I am attending:</label> <%= education.attending %></p>
+							<p style="clear: left;"><label class="resume-view">I will graduate on:</label> <%= education.graduate_on %></p>
+							<p style="clear: left;"><label class="resume-view">I plan to attend:</label> <%= education.plan_attend %></p>
+							<p style="clear: left;"><label class="resume-view">Degree or field of study:</label> <%= education.study %></p>
+							<p style="clear: left;"><label class="resume-view">I have completed:</label> <%= education.completed %></p>
+							<p style="clear: left;"><label class="resume-view">Completion date:</label> <%= education.completed_on %></p>
+							<p style="clear: left;"><label class="resume-view">I have graduated:</label> <%= education.graduated %></p>
+							<p style="clear: left;"><label class="resume-view">Date of graduation:</label> <%= education.graduation_date %></p>
+							<p style="clear: left;"><label class="resume-view">Degree received:</label> <%= education.degree %></p>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="/student/resume/educations/<%= education.id %>/edit"  class="btn btn-small btn-success">Edit</a>
+						</td>
+					</tr>
+					<% end %>
+				</table>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container -->

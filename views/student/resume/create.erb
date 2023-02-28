@@ -1,0 +1,167 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+		      <h1 class="page-header">Create New Account</h1>
+			</div>
+		</div>
+		<form class="form-horizontal" method="post" id="resume_tool">
+		<div class="form-row">
+			<div class="form-group col-md-6"> 
+				<label for="school_password">School ID</label>
+				<input type="text" class="form-control" placeholder="" name="school_password" id="school_password" aria-describedby="schoolpasswordHelp" value="<%= params[:school_password] %>" />
+					<small id="schoolpasswordHelp" class="form-text">If you do not know your School ID, please contact your school Counselor or teacher.</small>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="email">Personal Email Address</label>
+				<input type="text" class="form-control" placeholder="" name="email" id="email" aria-describedby="emailHelp" value="<%= params[:email] %>" />
+					<small id="emailHelp" class="form-text">You will use your personal email to access your account.</small>
+			</div>
+			<div class="form-group col-md-6">
+				<label for="password">Personal Password</label>
+				<input type="text" class="form-control" placeholder="" name="password" id="password" aria-describedby="passwordHelp" value="<%= params[:password] %>" />
+					<small id="passwordHelp" class="form-text">This personal password will be used with your email to access your account.</small>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-4">
+				<label for="first_name">First Name</label>
+				<input type="text" name="first_name" id="first_name" class="form-control" placeholder="" value="<%= @first_name %>" />
+			</div>
+			<div class="form-group col-md-4">						
+				<label for="middle_name">Middle Name</label>
+				<input type="text" name="middle_name" id="middle_name" class="form-control" placeholder="" value="<%= @middle_name %>" />
+			</div>
+			<div class="form-group col-md-4">
+				<label for="last_name">Last Name</label>
+				<input type="text" name="last_name" id="last_name" class="form-control" placeholder="" value="<%= @slast_name %>" />
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="address">Address</label>
+				<input type="text" name="address" id="address" class="form-control" placeholder="" value="<%= @address %>" />
+			</div>
+			<div class="form-group col-md-6">
+				<label for="address2">Address</label>
+				<input type="text" name="address2" id="addres2" class="form-control" placeholder="" value="<%= @address2 %>" />
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="city">City</label>
+				<input type="text" name="city" id="city" class="form-control"  placeholder=""value="<%= @city %>" />
+			</div>
+			<div class="form-group col-md-2">
+				<label for="state">State</label>
+				<select type="text" id="state" name="state" class="form-control" value="<%= @state %>">
+					<option value=""></option>
+					<% @state.sort{|a,b| a.abbr <=> b.abbr}.each do |state| %>
+					<option value="<%= state.abbr %>" <%= 'selected' if state.abbr == @state %>><%= state.abbr %></option>
+					<% end %>
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<label class="control-label"for="zip">Zip</label>
+				<input type="text" name="zip" id="zip" class="form-control" placeholder="" value="<%= @zip %>" />
+			</div>
+		</div>
+		<div class="form-row">		
+			<div class="form-group col-md-6">
+				<label for="phone">Phone</label>
+				<input type="text" name="phone" id="phone" class="form-control" placeholder="" value="<%= @phone %>" />
+			</div>
+		</div>
+		<div class="form-group col-md-5 offset-md-3">			
+			<label for="grade">Grade level</label>
+			<select type="text" class="form-control" name="grade" id="grade" style="text-align: center;" >
+				<option value="Select one">-- Select one --</option>
+				<option <%= 'selected' if @grade == '9' %> value="9">9</option>
+				<option <%= 'selected' if @grade == '10' %> value="10">10</option>
+				<option <%= 'selected' if @grade == '11' %> value="11">11</option>
+				<option <%= 'selected' if @grade == '12' %> value="12">12</option>
+				<option <%= 'selected' if @grade == 'College' %> value="College">College</option>
+			</select>
+		</div>
+		
+		<div class="form-group col-md-6">
+			<label for="future1">Future Plans</label>
+		</div>
+
+		<div class="form-group col-md-6">
+			<label for="future1"> &nbsp; </label>
+			<input type="checkbox" name="future1" id="future1" <%= 'checked="checked"' if @future1  %> /> <span> &nbsp; Enter technical college/trade school</span>
+		</div>
+
+		<div class="form-group col-md-6">		
+			<label for="future2"> &nbsp; </label>
+			<input type="checkbox" name="future2" id="future2" <%= 'checked="checked"' if @future2  %> /> <span> &nbsp; Work full-time</span>
+		</div>
+
+		<div class="form-group col-md-6">	
+			<label for="future3"> &nbsp; </label>
+			<input type="checkbox" name="future3" id="future1" <%= 'checked="checked"' if @future3  %> /> <span> &nbsp; Work part-time</span>
+		</div>
+
+		<div class="form-group col-md-6">		
+			<label for="future4"> &nbsp; </label>
+			<input type="checkbox" name="future4" id="future4" <%= 'checked="checked"' if @future4  %> /> <span> &nbsp; Enter the military</span>
+		</div>
+
+		<div class="form-group col-md-6">	
+			<label for="future5"> &nbsp; </label>
+			<input type="checkbox" name="future5" id="future5" <%= 'checked="checked"' if @future5  %> /> <span> &nbsp; Go to college</span>
+		</div>
+
+		<div class="form-group col-md-6">		
+			<label for="future6"> &nbsp; </label>
+			<input type="checkbox" name="future6" id="future6" <%= 'checked="checked"' if @future6  %> /> <span> &nbsp; I have money to pay for education</span>
+		</div>
+
+		<div class="form-group col-md-6">		
+			<label for="future7"> &nbsp; </label>
+			<input type="checkbox" name="future7" id="future7" <%= 'checked="checked"' if @future7  %> /> <span> &nbsp; Counting on parents for money for education</span>
+		</div>
+
+		<div class="form-group col-md-6">		
+			<label for="future8"> &nbsp; </label>
+			<input type="checkbox" name="future8" id="future8" <%= 'checked="checked"' if @future8  %> /> <span> &nbsp; Considering sources of financial aid or scholarships</span>
+		</div>
+		<div class="form-row">				
+			
+			<div class="form-group col-md-6" style="text-align: right;">
+				<label for="account"></label>
+				<button class="btn btn-primary" id="account" type="submit">Create Account</button>&nbsp;&nbsp;<a href="/student/report" class="btn btn-secondary">Cancel</a>
+			</div>
+		</div>
+		</form>
+	</div>
+
+
+	<script type="text/javascript">
+		EnableSubmit = function(val) {
+		var submit = document.getElementById("account");
+			if (val.checked == true) {
+	        submit.disabled = false;
+	    	}
+			else {
+	        submit.disabled = true;
+		  	}
+		}
+	</script>
+</div>
+
+<script  type="text/javascript">
+	var frmvalidator = new Validator("resume_tool");
+	frmvalidator.addValidation("first_name","req","Please enter your First Name");
+	frmvalidator.addValidation("last_name","req","Please enter your Last Name");
+	frmvalidator.addValidation("address","req","Please enter your Address");
+	frmvalidator.addValidation("city","req","Please enter your City");
+	frmvalidator.addValidation("state","req","Please enter your State");
+	frmvalidator.addValidation("zip","req","Please enter your Zip");
+	frmvalidator.addValidation("phone","req","Please enter your phone");
+</script>
+
+
+		

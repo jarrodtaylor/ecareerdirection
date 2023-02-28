@@ -1,0 +1,30 @@
+
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<a href="/student/resume/index" class="btn btn-small pull-right" style="margin-top: 12px;">Resume Tool</a>
+				<h1 class="page-header">Career Skills</h1>
+			</div>
+			<div class="col-md-8 offset-md-2">
+					
+				<p>
+					<label for="skill"><strong>Skill: </strong></label>
+					<%= @skill.skill %>
+				</p>
+				<p>
+					<label for="applied_1"><strong>Applied 1: </strong></label>
+					<%= @skill.applied_1 %>
+				</p>
+				<p>
+					<label for="applied_2"><strong>Applied 2: </strong></label>
+					<%= @skill.applied_2 %>
+				</p>
+				
+				<hr />
+					
+				<p><a class="btn btn-success btn-small" href="/student/resume/skills/<%= @skill.id %>/edit">Edit</a> &nbsp; <a class="btn btn-small" href="/student/resume/skills/skills">Index</a></p>
+			</div>
+
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+

@@ -1,0 +1,100 @@
+	<!-- <div class="row">
+		<div class="modal hid fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel">
+		  <div class="modal-dialog modal-lg" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header" style="color: white; background-color: #8aa0a8;">
+				  <h3 class="modal-title pull-left" id="infoModalLabel">Some instructions for this page!</h3>
+		      </div>
+		      <div class="modal-body">
+				  <img src="/img/instr/stud-page.png" width="600px" />
+			  </div>
+			  <div class="modal-footer">
+				  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+			  </div>
+		  </div>
+	  </div>
+	</div>
+</div> -->
+
+
+
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				
+								<!-- <a href="#infoModal" role="button" class="btn btn-small btn-secondary pull-right" style="margin-top: 6px; color: white;" data-toggle="modal"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle-fill" viewBox="0 0 16 16">
+				  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+				</svg> &nbsp;After sign-in</a> -->
+				
+				
+				<h1 class="page-header">Student Account</h1>
+			</div>
+			<div class="col-md-7">
+				<img src="/img/eCDsmlogo.svg" style="width: 44px; float: left; margin: -2px 0 0 0;"><h6 style="margin-left: 54px;">Take the <strong><span class="logo-e">e</span>CD</strong> Exercise to focus on your future and get your Careers and Occupations Guide Report.</h6>
+				<p class="lead">This is your own personalized academic and career planning report.</p>
+				<p>You can take the <strong><span class="logo-e">e</span>CD</strong> Exercise twice. You can always view your reports and videos.</p>
+			
+				<hr style="margin: 20px 0; border-top-color: #1abc9c;" />
+				<img src="/img/eCDsmlogo.svg" style="width: 44px; float: left; margin: -2px 0 0 0;"><h6 style="margin-left: 54px;">The <strong><span class="logo-e">e</span>CD</strong> Online Resume Tool can help you create a resume and cover letter that will help you &ldquo;get that job!&rdquo;</h6>
+				<p class="lead">By completing the information online, you can automatically generate:</p>
+				<ul class="padleft">
+					<li>resume</li>
+					<li>cover letters and thank you notes for after your interview</li>
+					<li>references</li>
+				</ul>
+			</div>	
+					
+			<div class="col-md-5">		
+	   
+				<div class="sign-in" style="padding: 18px 24px; margin: 20px 0;">
+					<h6>Student Account</h6>
+					<div class="col-sm-12" style="margin-bottom: 20px;">
+						<% unless session[:student] %>
+						<p>New user<br />
+						<a href="/student/reports/create" style="margin-top: 6px;" class="btn btn-primary">Create account</a></p>
+						<% else %>
+						<p>You are signed in<br />
+						<a href="/student/reports/signin" style="margin-top: 6px;" class="btn btn-success">Your Career</a></p>
+						<% end %>
+					</div>
+					<div class="col-sm-12">
+						<% unless session[:student] %>
+						<p>Existing user<br />
+						<a href="/student/reports/signin" style="margin-top: 6px;" class="btn btn-primary"><i class="icon-signin"></i> &nbsp;Sign in</a></p>
+						<% else %>
+						<p>You are signed in<br />
+						<a href="/student/reports/signin" style="margin-top: 6px;" class="btn btn-success">Resume Tool</a></p>
+						<% end %>
+					</div>
+					
+					<% if session[:student] %>
+					<br />
+			
+					<p style="line-height: 15px;"><a style="margin: 5px 24px 20px 0;" class="btn btn-mini btn-secondary pull-left" href="/student/resume/sign-out">&nbsp;&nbsp;<i class="icon-signout"> </i> &nbsp;Sign out&nbsp;&nbsp;</a>
+					<strong>PROTECT YOUR PRIVACY.</strong>
+					<small>If you are using a public or shared device <strong>sign out</strong> when finished.</small></p>
+					<% end %>
+				</div>
+				
+				
+				<!-- <div class="sign-in" style="padding: 32px; margin: 48px 0;">
+					<h6>Careers and Occupations Guide Reports</h6>
+					<form method="post">
+						<div class="control-group">
+							<label class="control-label" for="password">Enter your school&rsquo;s password</label>
+							<div class="controls">
+								<input type="password"  class="input-medium search-query" id="password" name="password" /> &nbsp; <input class="btn btn-success btn-small" type="submit" value="Sign in" />
+							</div>
+						</div>
+					</form>
+					<p><small>If you are a student and you do not know your school&rsquo;s password, please contact your school Counselor or teacher.</small></p>
+
+				</div> -->				
+			</div>
+			<!-- <div class="col-md-5">
+				<p style="width: 90%; float: right;"><img src="/img/student-report.jpg" width="100%" class="pic-border"></p>
+			</div> -->
+			
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+

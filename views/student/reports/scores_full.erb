@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  	<meta charset="utf-8" />
+	  	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+	  	<title>eCD Full Report</title>
+		
+	   <link href="/css/bootstrap.min.css" rel="stylesheet">
+	  	<link href="/css/bootstrap-reboot.min.css" rel="stylesheet">
+		<link href="/css/bootstrap-grid.min.css" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="/css/resume-style.css" />
+		<link type="text/css" rel="stylesheet" href="/css/datetimepicker.css" />
+		<link type="text/css" rel="stylesheet" href="/css/resume-content.css" />
+		<link type="text/css" rel="stylesheet" href="/css/theme.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/css/font-awesome-ie7.min.css" />
+		<link type="text/css" rel="stylesheet" href="/css/buttons_altered.css" />
+		
+			<style type="text/css">
+			
+			
+			body	{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.container	{
+				font-family: 'helvetica', helvetica, sans-serif;
+			}
+
+			/*.container {
+				margin-left: auto;
+				margin-bottom: 18px;
+				margin-right: auto;
+				margin-top: 18px;
+				font-family: 'helvetica', helvetica, sans-serif;
+				padding: 0px;
+				width: 940px;
+				line-height: 21px;
+				font-size: 14px;
+			}*/
+		
+			hr	{
+				border: none;
+				border-bottom: 1px solid #cdcdcd;
+				margin: 18px 0;
+			}
+			
+			.divider	{
+				border: none;
+				border-bottom: 5px solid #b2b5bc;
+				margin: 32px 0;
+			}
+			
+			p {
+				margin: 0;
+				padding: 6px 0 6px 0;
+				text-align: left;
+				font-family: 'helvetica', helvetica, sans-serif;
+			}
+		
+			.lead	{
+				font-weight: 300;
+				font-size: 1.5em;
+				line-height: 1em;
+				font-family: 'helvetica', helvetica, sans-serif;
+			}
+		
+			.small	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-size: 0.85em;
+				line-height: 0.85em;
+			}
+	
+			table  {
+				font-family: 'helvetica', helvetica, sans-serif;
+				margin: 0px;
+				padding: 0px;
+				border: 0;
+			}
+	
+			tr	{
+				margin: 0;
+				padding: 0;
+				border: 0;
+			}
+
+			td {
+				text-align: left;
+				line-height: 16px;
+				font-size: 14px;
+				margin: 0;
+				padding: 4px 9px;
+				border: 0;
+			}
+			
+			tr.main td	{
+				font-family: helvetica;
+				line-height: 24px;
+				font-weight: 300;
+				border: none;
+			}
+			tr.main td ul li	{
+				line-height: 18px;
+				font-weight: 300;
+				border: 0;
+			}
+							
+			ul	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				margin: 0 0 12px 12px;
+			}
+			
+			ul li	{
+				margin: 0;
+				padding: 0;
+				font-family: 'helvetica', helvetica, sans-serif;
+			}
+			
+			ol	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				margin: 0 0 12px 12px;
+			}
+			
+			ol li	{
+				margin: 0 0 9px 0;
+				padding: 0;
+				font-family: 'helvetica', helvetica, sans-serif;
+			}
+			
+			h1 	{
+				font-weight: 400;
+				font-size: 2.6em;
+			}
+			
+			.header1	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-weight: 700;
+				font-size: 1.7em;
+				line-height: 1.2em;
+				margin: 6px 0;
+			}
+			
+			.header2	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-weight: 700;
+				font-size: 1.3em;
+				line-height: 1.2em;
+			}
+			
+			.header3	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-weight: 600;
+				font-size: 1.1em;
+				line-height: 1.3em;
+			}
+			
+			.semi-bold	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-weight: 600;
+			}
+
+			a {
+					color: #008ae2;
+			}
+
+			a:hover {
+				text-decoration: none;
+				color: #ff6c00;
+			}
+			
+			.job_pic	{
+				float: right;
+				margin: 0 0 12px 12px;
+			}
+			
+			a.button	{
+				color: white;
+				background-color: #0ea7d2;
+				margin: 24px 0;
+				padding: 4px 12px;
+				text-decoration: none;
+				font-weight: 700;
+			}
+			
+			a.button:hover	{
+				background-color: black;
+			}
+			
+			.logo-e	{
+				font-style: italic;
+				color: #1abd9c;
+			}
+			
+			blockquote	{
+				border: none;
+				padding: 0 0 0 24px;
+				margin: 9px 0 9px 0;
+			}
+			
+			@media print {
+			  .hidden-print {
+			    display: none !important;
+			  }
+			}
+			
+			table.side tr td	{
+				border: 0;
+				text-align: center;
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-size: 12px;
+				font-weight: 600;
+			}
+	
+			table.side tr th	{
+				font-family: 'helvetica', helvetica, sans-serif;
+				font-size: 12px;
+				font-weight: 600;
+			}
+
+			</style>
+
+		</head>
+
+<body>
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+		
+		<div style="page-break-after: always;">
+			
+			
+			<form method="post">
+			<button type="submit" class="hidden-print btn btn-success" style="float: right; margin-top: 12px;">Create PDF</button>
+			</form>
+			
+			<a onclick="history.back()" class="hidden-print btn" style="float: right; margin: 12px 16px 0 12px;">Back</a>
+			<br /><br />
+			
+		<img src="/img/arng.svg" style="float: right; margin: 16px 0 16px 12px;" width="80px">
+		
+		<img src="/img/eCareerDirection-logo-black.svg" style="margin-top:8px;" width="240px">
+		
+		  
+		<hr />
+		
+		<p class="lead">Report for <%= @student.first_name %> <%= @student.last_name %></p>
+		
+		<h1>Careers and Occupations Guide</h1>
+		<p><small>Support Manual for</small><br />
+		<strong><span class="logo-e">e</span>CD</strong>, <strong><span class="logo-e">e</span>CareerDirection</strong> and <em><strong>FUTURE</strong>FOCUS</em>
+		<br />
+		<small>Version 6.0</small></p>
+		<p>
+		<strong>James C. Shafe</strong>, President, Career Training Concepts, Inc.<br />
+		<strong>Gary L. Arthur, Ed.D.</strong>, Professor, Counseling & Psychological Services, Georgia State University<br />
+		<strong>Matthew Morgan, A.B.J.</strong>, Editor & Research Specialist, Career Training Concepts, Inc.<br />
+		<strong>Jeff Musumeche, MSHRM,</strong> Program Management, Career Training Concepts, Inc.<br />
+		<strong>Edward M. Buckner, Ph.D.</strong>, Educational Consultant, The Research Group, Inc.<br />
+		<strong>Amy Shaye, Ed.S.</strong>, The Research Group, Inc.<br />
+		<strong>Jeff Porterfield, Ph.D.</strong>, Associate Professor, Clark Atlanta University<br />
+		<strong>John Hutcheson Jr., Ph.D.</strong>, The Research Group, Inc.<br />
+		<strong>Amy Smith, Ph.D.</strong>, Educational Consultant, Career Training Concepts, Inc.
+		</p>
+
+		<p><strong>Career Training Concepts, Inc.</strong><br />
+		Toll Free: 888-326-9229 &nbsp; www.ecareerdirection.com<br />
+		© <%= Time.now.strftime("%Y") %> Career Training Concepts, Inc. All Rights Reserved.
+		</p>
+		
+		<hr />
+		
+		<p class="lead">Welcome to your <strong>Careers and Occupations Guide (COG)</strong> Report!</p>
+		<p>This report combines career categories you find most interesting to help you:</p>
+		<ul>
+			<li> understand your unique personality,</li>
+			<li> identify what occupations you might enjoy the most, and </li>
+			<li> determine the education and training required to meet your career goals. </li> 
+		</ul>
+
+		<p>Your <strong><em>COG</em></strong> Report is based on your interests and 
+		provides suggestions in the following areas:</p>
+		<ul> 
+			<li> high school courses</li>
+			<li> extra-curricular and volunteer activities</li>
+			<li> part-time jobs</li>
+			<li> occupations detailed by people versus technical orientation and amount of education and training required </li>
+			<li> occupations detailed by job description and income range</li>
+		</ul>
+
+		<p>Remember, you are just exploring right now. You can create other 
+		<strong><em>COG</em></strong> reports using different career category 
+		combinations too.</p>
+
+		<p>You might want to share the information with your parents, your 
+		teacher, or a friend. This information will help you make good 
+		decisions as you plan for life in high school and beyond. </p>
+
+		<p>Before you begin, it will help you to understand some words used 
+		in this report.</p>
+
+		<ol> 
+			<li> <strong>Technical, Trade, Vocational and Business Colleges</strong> - in two years or less, these schools prepare you for job entry into specific trades, professions, or career fields. </li>
+			<li> <strong>Two-year Junior or Community Colleges</strong> - these colleges award an Associate's Degree. You can take freshman and sophomore level classes at a Junior College and then transfer to a four-year institution. </li>
+			<li> <strong>Four-year College or University</strong> - these are schools where you can earn a Bachelor's Degree and high level degrees such as a Master's or Ph.D.</li>
+			<li> <strong>Master's Degree</strong> - awarded for completing a one or two year program of study beyond a Bachelor's degree.</li>
+			<li> <strong>Doctorate Degree (e.g., Ph.D., Ed.D., or M.D.)</strong> - awarded for completing a program of study that is often lengthy and that requires some type of original research, as well as written and oral examinations. </li>
+		</ol>
+
+		<p>Are you ready to explore your future career possibilities? Let's get started!</p>
+		
+		<hr />
+		<center><a href="http://www.nationalguard.com/education" target="blank"><img src="/img/ads/EducationBenefits.gif" /></a></center>
+    <% if @cat1 %>
+      <hr class="divider" />
+		  <%= @cat1 %>
+    <% end %>
+    <% if @cat2 %>
+      <hr />
+		  <%= @cat2 %>
+    <% end %>
+	 
+		<hr />
+		<center><a href="http://www.nationalguard.com/careers" target="blank"><img src="/img/ads/CareerOpportunities.gif" /></a></center>
+    <% if @report1 %>
+		  <hr class="divider" />
+		  <%= @report1 %>
+		  <hr />
+    <% end %>
+
+		<br />
+		<center><a href="http://www.nationalguard.com/benefits" target="blank"><img src="/img/ads/guard1.gif" /></a></center>
+		<br />
+		<center><a href="http://www.nationalguard.com" target="blank"><img src="/img/arng-no-ground.svg" width="120px" /></a></center>
+		<br />
+		<center><img src="/img/ads/guard3.gif" /></center>
+		
+		<br /><br />
+		
+		<!-- <hr />
+		<p><center><small>&copy; <%= Time.now.strftime("%Y") %> Career Training Concepts Inc.</small></center></p> -->
+
+		</div></div></div>
+	</div>
+</body>
+
+</html>

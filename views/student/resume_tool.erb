@@ -1,0 +1,39 @@
+	<div class="container">	
+		<div class="row">  
+			<div class="col-md-12">
+				<h1 class="page-header">Online Resume Tool</h1>
+			</div>
+			<div class="col-md-7">
+				<p class="lead"><strong><em>e</em>CareerDirection</strong> &nbsp;<em>Job Getting Tools</em> can help you create a resume and cover letter that will help you &ldquo;get that job!&rdquo;</p>
+				<p>You will need to enter your School ID to access this valuable tool. By completing the online form, you can automatically generate:</p>
+				<ul class="padleft">
+					<li>resume</li>
+					<li>cover letters and thank you notes for after your interview</li>
+					<li>references</li>
+				</ul>
+				
+				<div class="sign-in" style="padding: 18px 32px; margin: 48px 0;">
+					<h6>Resume Tool</h6>
+					<div style="padding-right: 18px; float: left; border-right: 1px solid #b2b5bc;">
+						<p>New user</p>
+						<p><a href="/student/resume/create" class="btn btn-primary">Create an account</a></p>
+					</div>
+					<div style="margin-left: 184px;">
+						<% unless session[:student] %>
+						<p>Already have an account</p>
+						<p><a href="/student/rerports/signin" class="btn btn-success"><i class="icon-signin"></i> &nbsp;Sign in</a></p>
+						<% else %>
+						<p>You are already signed in</p>
+						<p><a href="/student/rerports/signin" class="btn btn-success">Go to Resume Tool</a></p>
+						<% end %>
+					</div>
+					
+					<p style="clear: both; padding-top: 12px;"><small>You will need your School ID to create a new account. If you do not know your school’s password, please contact your school Counselor or teacher.</small></p> 
+				</div>
+			</div>
+			<div class="col-md-5">
+				<p style="margin-left: 24px;"><img src="/img/resume-cron.png" width="100%" class="rotated"></p>
+			</div>
+		</div> <!-- /row -->
+	</div> <!-- /container -->
+

@@ -1,0 +1,71 @@
+<div class="container">	
+	<div class="row">  
+		<div class="col-md-12">
+			<a href="/admin/admin_edit" style="margin-top: 12px;" class="btn pull-right">Admin Index</a>
+			<h1 class="page-header">Student List by School</h1>
+		</div>
+	</div>
+	<form class="form-search" method="get">	
+	<div class="row">  
+		<div class="col-md-4" style="text-align: center;">
+			<strong>School ID</strong>
+			<input type="text" class="search-query" name="search" placeholder="Search School ID" value="<%= params[:search] %>" /> <br /><small>Leave blank for multi-school search</small>
+		</div>
+		<div class="col-md-5">
+			<span style="float: right;"><button type="submit" style="text-align: center;" class="btn btn-success">Find</button></span>
+			<div class="form-group">
+				<label style="float: left; margin-top: 8px;" for="state">Start &nbsp;&nbsp;</label>
+				<%= date_to_field('start', @start) %>
+			</div>
+			
+			
+			<div class="form-group">
+				<label style="float: left; margin-top: 8px;" for="state">&nbsp;&nbsp;End &nbsp;&nbsp;</label>
+				<%= date_to_field('end', @end) %>
+			</div>
+
+			
+		</div>
+		<div class="col-md-2">	
+				<% if @student.count > 0 %>
+					<a href="<%= request.url %>&csv=true" class="btn btn-primary">Download CSV</a>
+					<br />
+					<br />
+					<p><small><strong><%= @student.count %></strong> students found</small></p>
+				<% end %>
+		</div>
+	</div>
+	</form>
+	<div class="row">  
+		<div class="col-md-12">	
+		<table class="table table-striped table-condensed table-hover">
+				<tr>
+					<th>Student Name</th>
+					<th>School ID</th>
+					<th>Created On</th>
+				</tr>
+				<% @student.sort_by(&:created_on).reverse.each do |student| %>
+				<% if student.school_id %>
+				<tr>
+					<td>
+						<%= student.first_name %>  <%= student.last_name %>
+					</td>
+					<td>
+						<%= student.school_password %>
+					</td>
+					
+					<td>
+						<%= format_american_day(student.created_on) %>
+						<!-- <%= student.address %><br />
+						<%= student.city %>, <%= student.state %> <%= student.zip %><br />
+						<%= formatted_number(student.phone) %><br />
+						<%= student.email %><br /> -->
+					</td>
+				</tr>
+				<% end %>
+				<% end %>
+			</table>
+		</div>
+	</div> <!-- /row -->
+</div> <!-- /container -->
+
